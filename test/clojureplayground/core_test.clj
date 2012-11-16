@@ -3,8 +3,7 @@
         clojure.test
         clojureplayground.core))
 
-
-(fact "Check permutations"
+(fact "Permutations of string abc"
       (permutations "abc") => (contains ["abc" "acb" "bac"]))
 
 
