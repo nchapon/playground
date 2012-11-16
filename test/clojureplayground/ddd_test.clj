@@ -55,7 +55,6 @@
              ))
 
 
-
 (facts "Total protocols implementation"
 
        (let [line1 (LineItem. 5 (LineProduct. "cheese" 4))

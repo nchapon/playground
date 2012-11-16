@@ -1,10 +1,12 @@
 # clojure-playground
 
-A Clojure library designed to ... well, that part is up to you.
-
+Clojure playground :
+ * Code source forked from presentation [DDD in Functionnal Programming Language] {http://skillsmatter.com/podcast/design-architecture/talk-by-patrick-fredriksson}
+  
 ## Usage
 
-FIXME
+To run midje tests
+lein midje
 
 ## License
 
