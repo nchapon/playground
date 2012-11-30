@@ -75,14 +75,15 @@ is true for items in coll."
        (apply + line-totals))
     )
 )
-    
 
 
 
+(defn fname []
+  (let [employee {:name "bob"}]
+    ( (prn "Test")))
+  )
 
 
 (defn create-order [number date limit]
   {:pre [(>= limit 100) (<= limit 1000)]}
   (PurchaseOrder. number date :open limit []))
-
-
