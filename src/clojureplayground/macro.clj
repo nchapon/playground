@@ -31,7 +31,7 @@
 (defn build-contract [c]
   (let [args (first c)]
     (list
-     (into '[f] c)
+     (into '[f] args)
      (apply merge
             (for [con (rest c)]
               (cond
@@ -50,9 +50,9 @@
   (let [name (if (symbol? (first forms))
                (first forms)
                nil)
-        body (if name
-               (rest forms)
-               forms)]
+        body (collect-bodies (if name
+                               (rest forms)
+                               forms))]
     (list* 'fn name body)))
 
 
