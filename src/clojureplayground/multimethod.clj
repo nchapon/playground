@@ -14,3 +14,19 @@
     (if-let [[_ v] (find m k)]
       v
       (recur (::prototype m) k))))
+
+
+(defmulti compiler :os) ;;method dispatch
+
+(defmethod compiler ::unix [m] (get m :c-compiler))
+
+(defmethod compiler ::osx [m] (get m :c-compiler))
+
+(def clone (partial beget {}))
+
+(def unix {:os ::unix :c-compiler "cc" :home "/home"})
+
+(def osx (-> (clone unix)
+             (put :os ::osx)
+             (put :c-compiler "gcc")
+             (put  :home "/Users")))

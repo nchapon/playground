@@ -6,6 +6,11 @@
 
 
 
-;.;. A journey of a thousand miles begins with a single step. --
-;.;. @alanmstokes
 (fact "UDP" (get (beget {:sub 0} {:super 1}) :super) => 1)
+
+
+
+;.;. The journey is the reward. -- traditional
+(fact (compiler unix) => "cc")
+
+(fact (compiler osx) => "gcc")
