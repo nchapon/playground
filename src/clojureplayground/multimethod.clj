@@ -30,3 +30,11 @@
              (put :os ::osx)
              (put :c-compiler "gcc")
              (put  :home "/Users")))
+
+(defmulti cmd-compile (juxt :os compiler))
+
+(defmethod cmd-compile [::osx "gcc"] [m]
+  (str "/usr/bin/" (get m :c-compiler)))
+
+(defmethod cmd-compile :default [m]
+  (str "Ensure where to locate " (get m :c-compiler)))
