@@ -1,4 +1,4 @@
-(ns clojureplayground.mutation
+(ns clojureplayground.refs
   (:use [clojure.pprint :as pp])
   (:import [java.util.concurrent Executors]))
 
@@ -37,8 +37,6 @@
 (defn board-map [f bd]
   (vec (map #(vec (for [s %] (f s))) bd))) ;; use vec to not have seq
 
-
-
 (defn reset!
   "Reset the board state"
   []
@@ -60,7 +58,6 @@
   [mover (some #(good-move? % enemy-pos)
                (shuffle (king-moves mpos)))])
 
-
 (defn place [from to] to) ;; used to change a piece on the board
 
 (defn move-piece
@@ -68,7 +65,6 @@
   (alter (get-in board dest) place piece) ;; Place moving piece (alter [ref fun & args])
   (alter (get-in board src) place :-) ;; Empty from square
   (alter num-moves inc)) ;; Increment num noves
-
 
 (defn update-to-move [move]
   (alter to-move #(vector (second %) move))) ;; Swap if K will k to move
