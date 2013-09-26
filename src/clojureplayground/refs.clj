@@ -4,7 +4,7 @@
 
 ;; JOY Of Clojure chapter 11 (mutation) exercices
 ;; Usage of refs
-(def *pool* (Executors/newFixedThreadPool
+(def ^:dynamic *pool* (Executors/newFixedThreadPool
              (+ 2 (.availableProcessors (Runtime/getRuntime)))))
 
 (defn dothreads! [f & {thread-count :threads
